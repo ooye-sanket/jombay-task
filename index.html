@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Score</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { height: 100vh; overflow: hidden; }
+        #gaugeContainer { display: flex; flex-direction: column; align-items: center; }
+        #visualMeter { max-width: 500px; max-height: 150px; filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.3)); }
+        #valueInputScore { width: 100px; }
+    </style>
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen bg-white">
+    <div id="gaugeContainer" class="text-center relative">
+      
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[10px] text-lg font-semibold text-gray-700">
+            0
+        </div>
+        <canvas id="visualMeter" width="600" height="200"></canvas>
+        <div id="score" class="text-2xl font-semibold mt-2">0</div>
+        <div class="flex justify-center items-center relative w-full text-gray-500">
+            <span class="absolute left-[60px] text-blue-500">-100</span>
+            <span>Engagement Score</span>
+            <span class="absolute right-[60px] text-blue-500">100</span>
+        </div>
+        
+    </div>
+    <input type="number" id="valueInputScore" min="-100" max="100" value="0" 
+           class="mt-4 p-2 border rounded text-center" 
+           oninput="modifyVisual()">
+    
+    <script src="script.js"></script>
+</body>
+</html>
